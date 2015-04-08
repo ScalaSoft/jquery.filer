@@ -1,4 +1,4 @@
-jQuery.filer 1.0
+jQuery.filer 1.0.1
 ============
 jQuery.filer - Simple HTML5 File Uploader, a plugin tool for jQuery which change completely File Input and make it with multiple file selection, drag&drop support, different validations, thumbnails, icons, instant upload, print-screen upload and many other features and options.
 
@@ -22,6 +22,14 @@ Features
 * All icons in a one beautiful font
 * Drag & Drop Option
 * Trigger options
+
+Browser Support
+-------
+* Chrome 13+
+* Firefox 3.6+
+* Safari 6+
+* Opera 11.1+
+* Internet Explorer 10+
 
 Usage
 -------
@@ -138,6 +146,7 @@ $(document).ready(function() {
             },
             statusCode: {},
             onProgress: function(){},
+            onComplete: function(){}
         },
         dragDrop: {
             dragEnter: null,
@@ -203,6 +212,7 @@ __Options:__
     * __error__ A function to be called if the request fails {Function}
     * __statusCode__ An object of numeric HTTP codes {Object}
     * __onProgress__ A function called while uploading file with progress percentage {Function}
+    * __onComplete__ A function called when all files were uploaded {Function}
 * __dragDrop__
     * __dragEnter__ A function that is fired when a dragged element enters the input. {Function}
     * __dragLeave__ A function that is fired when a dragged element leaves the input. {Function}
@@ -232,6 +242,7 @@ __Triggers:__
 * $('#input_file').trigger("filer.remove", {id:0})
 * $('#input_file').trigger("filer.reset")
 * $('#input_file').trigger("filer.getList", {files:[]})
+* $('#input_file').trigger("filer.retry", here_is_file_id)
 
 __Attributes:__
 * data-jfiler-name | name of input (is used while applying plugin to a non file input)
@@ -247,7 +258,7 @@ __Attributes:__
 
 Filer Variables
 -------
-Filer Variables are created for simple usage them in the plugin string options. To use them just write <b>{{fi-(variable name)}}</b>. Below are all available variables that can be used:
+Filer Variables are created for simple usage them in the plugin string options. To use them just write <b>{{fi-(variable name)}}</b>. Below are all available combinations that can be used:
 * fi-name
 * fi-size
 * fi-size2
